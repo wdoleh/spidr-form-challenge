@@ -19,6 +19,9 @@ const BaseForm = () => {
         spidrPin: '',
     });
 
+    // Creating state for submission
+    const [submitted, setSubmitted] = useState(false);
+
     // Creating state for show/hide pin
     const [showPin, setShowPin] = useState(false);
 
@@ -69,10 +72,31 @@ const BaseForm = () => {
                 currency: "USD",
             }),
         });
+
+        // Display submission alert and clear message after timeout
+            setSubmitted(true);
+            setFormData({
+                firstName: "",
+                lastName: "",
+                contact: "",
+                email: "",
+                estimate: 0,
+                spidrPin: "",
+            });
+
+            setTimeout(() => setSubmitted(false), 3000);
     };
 
   return (
     <div className="relative z-10 bg-black/20 border border-white p-6 rounded-md backdrop-blur-sm">
+
+        {/* Success alert displayed at top of form */}
+        {submitted && (
+            <p className="text-green-400 text-sm text-center mb-3">
+                Form submitted! Data logged to console.
+            </p>
+        )}
+
         <form 
             className="w-full max-w-sm  border-white rounded-sm space-y-5" 
             onSubmit={handleSubmit}
