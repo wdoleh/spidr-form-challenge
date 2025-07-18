@@ -144,7 +144,7 @@ const BaseForm = () => {
                         className="w-full px-3 py-1.5 bg-transparent border border-white/20 rounded-md text-white placeholder-white/40 focus:outline-none focus:border-cyan-400 transition-colors"
                     />
                 </div>
-                <div className="relative">~
+                <div className="relative">
                     <label htmlFor="spidrPin" className="block text-xs text-white/80 mb-1">
                         Very, Very Secret 16-Digit Spidr PIN
                     </label>
